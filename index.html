@@ -34,6 +34,9 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;width:10
 .nav-l{display:flex;align-items:center;gap:30px}
 .nav-l a{font-size:14px;color:var(--mut);transition:color .2s}
 .nav-l a:hover{color:var(--ink)}
+/* buttons keep their own colour inside the nav (specificity fix) */
+.nav-l a.btn-p{color:var(--accent-ink)}
+.nav-l a.btn-s{color:var(--ink)}
 @media(max-width:820px){.nav-l a:not(.btn){display:none}}
 
 .btn{display:inline-flex;align-items:center;gap:8px;white-space:nowrap;
