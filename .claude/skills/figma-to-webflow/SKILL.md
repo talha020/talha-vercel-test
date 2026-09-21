@@ -5,7 +5,7 @@ description: Convert a Figma design into a built Webflow site the way Xerosol's 
 
 # Figma to Webflow
 
-You are building a Webflow site from a Figma design, the way this team builds: fluid em sizing from a 1920 frame, a fixed section shell, Client-First-flavoured class names, buttons and eyebrows as components, and a review round that will send back anything that drifts from the design. The reviewer's notes from thirteen past builds are in `references/qa-checklist.md`; the team's actual conventions, measured from those sites, are in `references/conventions.md`. Read both before you build anything. They are the standard you are held to.
+You are building a Webflow site from a Figma design, the way this team builds: fluid em sizing from a 1920 frame, a fixed section shell, Client-First-flavoured class names, buttons and eyebrows as components, and a review round that will send back anything that drifts from the design. The reviewer's notes from thirteen past builds are in `references/qa-checklist.md`; the team's actual conventions, measured from those sites, are in `references/conventions.md`. Read both before you build anything. They are the standard you are held to. `references/build-recipes.md` tells you what each Webflow tool verifiably does, so read it before the first write call.
 
 The work has five phases. Do them in order, and report at the end of each one with the staging link, because the reviewer wants two or three sections early, not the whole site late.
 
@@ -55,7 +55,7 @@ After the first two or three homepage sections, publish to staging (`data_sites_
 ## 4. Responsive and motion
 
 - Responsive is not optional even though the fluid root does most of the desktop work. Below 991px the root snaps to 16px, so every typography class, every grid and every `padding-vertical` combo needs its tablet, landscape and portrait values. Designers usually provide only a homepage mobile frame; derive the rest from it. Check every page at 991, 767 and 479 with `element_snapshot_tool` or a published-site screenshot.
-- Motion follows `references/qa-checklist.md` section 2: one reveal per section group, cards in a row together, early trigger, no navbar starting at opacity 0, smooth dark-to-light transitions, no zoom on hover. Build reveals with `data_interactions_tool` (call its `guide` action first; opacity lives under `wf:transform`, values are arrays not `{from,to}`), targeting classes so every instance animates. Add Lenis in the site footer only if the design brief or reference site uses smooth scroll.
+- Motion follows `references/qa-checklist.md` section 2 and the payload shapes in `references/motion-recipes.md`: one reveal per section group, cards in a row together, early trigger, no navbar starting at opacity 0, smooth dark-to-light transitions, no zoom on hover. Build reveals with `data_interactions_tool` (call its `guide` action first; opacity lives under `wf:transform`, values are arrays not `{from,to}`), targeting classes so every instance animates. Add Lenis in the site footer only if the design brief or reference site uses smooth scroll.
 - Sliders: Swiper from the page footer code with the `swiper*` classes on the markup.
 
 ## 5. QA and handover
@@ -69,5 +69,7 @@ Then close the way the team closes: publish, open the live staging URL yourself,
 - `references/figma-extraction.md`: reading the Figma file, tool call shapes, the build sheet format.
 - `references/conventions.md`: the team's class system, section shell, type scale, components, navbar, images, motion, CMS, with measured values.
 - `references/qa-checklist.md`: what the reviewer sends back, quoted from real review rounds. Read before building and again before handover.
+- `references/build-recipes.md`: what the HTML builder and the style, variable and element tools verifiably do, element-type mapping, rate-limit and sandbox workarounds. Read before the first Webflow write.
+- `references/motion-recipes.md`: Lenis, scrubbed IX3 timelines, the dark-to-light section transition, hover and sticky stages, as built on the reference site.
 - `references/webflow-mcp-guide.md`: condensed Webflow MCP tool guide, parameter shapes, ordering rules, destructive actions to confirm first.
 - `references/site-analyses/`: the full forensic reports on the thirteen reference builds, for when you need a real example of a navbar, a footer, a CMS layout or a scroll animation.
