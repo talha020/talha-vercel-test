@@ -1,0 +1,21 @@
+{
+  "skill_name": "figma-to-webflow",
+  "evals": [
+    {
+      "id": 1,
+      "name": "build-hero-and-section-on-sandbox",
+      "prompt": "Build the homepage hero and the first content section below it from this Figma into my Webflow practice site. Figma: https://www.figma.com/design/d7GNBQadYz62QrujZiGZZm/Furec?node-id=0-1 (build from the FUREC desktop frame on the Design page). Webflow site: Talha's Stunning Site, site id 6aa68591d733dbbfbfd3088c, page Home id 6aa68594d733dbbfbfd30890. The site is empty. Set up the site the way we always do (global styles, variables, class system), build the two sections with real copy from the design, make them responsive, and publish to the webflow.io staging domain. Do not touch any other site.",
+      "expected_output": "Variables collection(s) created, global styles in site head, pages/classes following the section shell (section_x > padding-global > padding-vertical.is_x > container-large > wrapper_x), heading-style-* and text-size-* classes, em units only, tablet/mobile overrides or Responsive variable modes, hero and one section inserted with real German copy, staging published, report with the staging link and what was verified.",
+      "files": [],
+      "assertions": []
+    },
+    {
+      "id": 2,
+      "name": "qa-pass-drh-against-figma",
+      "prompt": "Do a QA pass on the DRH Webflow build before I send it to the client. Webflow site id 6a90318cb7ae0d1b3f2ebf33 (drh-55fa7e.webflow.io), homepage page id 6a90318db7ae0d1b3f2ebf8f. Figma: https://www.figma.com/design/pSY38IMIfh8mfQavINdKfD/DRH--dev-?node-id=4-2. Check the homepage against the design and against our usual review points and give me a prioritised fix list I can paste into Notion for Ali. Read-only: do not change the site.",
+      "expected_output": "A prioritised checklist grouped by area (navbar, animations, layout/spacing vs Figma, images, typography, links/CMS, responsive, SEO), each item concrete and locatable (element/class/page), no writes to the site, referencing the reviewer's known recurring issues (navbar width, dropdowns, fade-in order, image weight, text sizes vs Figma, alt text, min 14px, mobile images).",
+      "files": [],
+      "assertions": []
+    }
+  ]
+}
