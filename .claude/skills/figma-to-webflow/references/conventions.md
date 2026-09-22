@@ -1,6 +1,6 @@
 # Xerosol build conventions for Webflow
 
-What the team's finished sites actually look like inside Webflow. Derived from forensic analysis of 13 Figma-to-Webflow builds (Sep 2026): Furec, Medicini Plus, DRH, BookFlow, Atlas, CleanFlow, MovePro, Wall+Baur, EASIT, GMG, HausVertrauen, Primegate, Autoglas. Where sites disagree, the rule below is the majority pattern, and the variants are named. Rules marked **(2/13)** rest on fewer examples.
+What the team's finished sites actually look like inside Webflow. Derived from forensic analysis of Xerosol's Figma-to-Webflow builds (Sep 2026): Furec, Medicini Plus, DRH, BookFlow, CleanFlow, GMG, Wall+Baur, HausVertrauen and Atlas in depth (full reports in `site-analyses/`), with MovePro, EASIT, Primegate and Autoglas only partially read. Where sites disagree, the rule below is the majority pattern and the variants are named. The two marketplace templates (BookFlow, CleanFlow) are the cleanest builds; DRH is the reviewer's reference for navbar and motion; GMG, Wall+Baur and HausVertrauen show the older px-named variant to avoid.
 
 ## 1. The fluid root: 1em = 16 Figma pixels
 
