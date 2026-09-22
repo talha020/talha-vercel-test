@@ -27,6 +27,15 @@ Colours: write hex or rgba in the builder CSS, then point the property at a vari
 
 Inline SVG becomes DOM elements rather than the team's usual `HtmlEmbed`. Both render; DOM elements are editable per node in the Designer. If a project insists on embeds, create the icon with `data_element_builder` type `HtmlEmbed` and set its code through `data_element_settings_tool > set_settings` key `code`.
 
+## Verified on a real build (Furec hero + section on a blank site)
+
+- `update_style` on `body`, `h1`, `p`, `a` fails with "Style not found" on a fresh site: tag styles only exist once the Designer has touched them. Put the body font, colour, background and the heading, paragraph and link resets in the site head CSS instead (see SKILL.md phase 2).
+- `element_snapshot_tool` needs an open Designer session; headless it returns `status: false`. Verify through the published staging URL (ask the user to open it when the sandbox cannot fetch `*.webflow.io`) or by reading back the tree and styles.
+- A 30-element section with 60 CSS rules and three media queries inserts in one `data_whtml_builder` call in a few seconds. Two sections per call is fine; keep the HTML under roughly 12KB per action.
+- `get_design_context` on a whole Figma section can return 70KB and spill to a file. Parse the saved JSON with python: text nodes are `<p className="…" data-node-id="…">text</p>`, layout frames are `<div className="…" data-node-id="…" data-name="…">`; Tailwind tokens carry the values (`gap-[var(--space\/6,24px)]`, `text-[length:var(--font-size\/display,69px)]`, `leading-[1.05]`, `tracking-[-2.07px]`).
+- `get_metadata` on a page frame (not the page) is 120KB and lists the section frames as direct children with `y` and `height`, enough to map sections without reading the page.
+- `data_pages_tool > update_page_settings` with `seo` and `openGraph {titleCopied, descriptionCopied}` sets the page meta in one call; `publish_site` with `publishToWebflowSubdomain: true` returns `publishScope: "site"` immediately.
+
 ## Element ids
 
 Every element id is a two-field object `{component, element}`. Copy it verbatim from the tool result. The page's Body is the root returned by `get_all_elements` with `depth: 0`; a component definition's root comes from `get_all_elements` with `scope_component_id`.
